@@ -36,15 +36,31 @@ jobs:
           echo "API KEY updated and EXISTS: ${{ secrets.HEROKU_API_KEY != '' }}"
         
 
+    #   - name: Deploy to Heroku
+    #     run: |
+    #       git config --global user.email "action@github.com"
+    #       git config --global user.name "GitHub Action"
+    #       echo "$HEROKU_API_KEY" | heroku login --apikey
+    #       heroku git:remote -a $HEROKU_APP_NAME
+    #       git push heroku HEAD:main --force
+          
+    #     env:
+    #         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+    #         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+
       - name: Deploy to Heroku
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          echo "$HEROKU_API_KEY" | heroku login --apikey
-          heroku git:remote -a $HEROKU_APP_NAME
-          git push heroku HEAD:main --force
+              git config --global user.email "action@github.com"
+              git config --global user.name "GitHub Action"
           
-        env:
-            HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-            HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+              # Set Heroku API key for authentication
+              export HEROKU_API_KEY=${{ secrets.HEROKU_API_KEY }}
+              export HEROKU_APP_NAME=${{ secrets.HEROKU_APP_NAME }}
+          
+              # Add Heroku git remote
+              heroku git:remote -a $HEROKU_APP_NAME
+          
+              # Push to Heroku
+              git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:main --force
+          
 
