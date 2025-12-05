@@ -11,11 +11,11 @@ const HomePage = () => {
   return (
     <main>
       <Hero />
-      <About />
       <Skills />
       <Projects />
       <BlogPreview />
       <DownloadCV />
+      <About />
       <Contact />
     </main>
   );

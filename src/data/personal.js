@@ -11,12 +11,48 @@ export const personalData = {
     twitter: "https://twitter.com/yourusername"
   },
   skills: [
-    { name: "React", level: 90 },
-    { name: "JavaScript", level: 85 },
-    { name: "Node.js", level: 80 },
-    { name: "Python", level: 75 },
-    { name: "CSS", level: 90 },
-    { name: "HTML", level: 95 }
+    {
+      category: "Backend",
+      items: ["Python", "Java"],
+    },
+    {
+      category: "Frontend",
+      items: ["JavaScript", "HTML", "CSS"],
+    },
+    {
+      category: "Frameworks",
+      items: ["Flask", "FastAPI", "Django", "React.js"],
+    },
+    {
+      category: "Databases",
+      items: ["MySQL", "PostgreSQL", "MongoDB"],
+    },
+    {
+      category: "Cloud",
+      items: ["AWS Lambda", "EC2", "DynamoDB"],
+    },
+    {
+      category: "CI/CD & DevOps",
+      items: ["Docker", "Git", "GitHub Actions"],
+    },
+    {
+      category: "Testing",
+      items: ["Pytest", "Unittest"],
+    },
+    {
+      category: "Machine Learning",
+      items: [
+        "Logistic Regression",
+        "Linear Regression",
+        "Random Forest",
+        "Decision Tree",
+        "KNN",
+      ],
+    },
+    {
+      category: "LLM & GenAI",
+      items: ["RAG", "HuggingFace"],
+    },
   ],
   projects: [
     {
