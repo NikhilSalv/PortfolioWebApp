@@ -10,9 +10,15 @@
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
+}
+
+.project-card {
+  flex: 0 1 350px;
+  max-width: 100%;
 }
 
 .project-card {
@@ -83,8 +89,8 @@
 }
 
 @media screen and (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .project-card {
+    flex: 0 1 100%;
   }
 }
 
