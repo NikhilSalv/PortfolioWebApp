@@ -37,19 +37,14 @@ jobs:
         
 
       - name: Deploy to Heroku
-      run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
-    
-        # Authenticate with Heroku
-        echo "$HEROKU_API_KEY" | heroku login --apikey
-    
-        # Add Heroku git remote
-        heroku git:remote -a $HEROKU_APP_NAME
-    
-        # Push to Heroku
-        git push heroku HEAD:main --force
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-    
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          echo "$HEROKU_API_KEY" | heroku login --apikey
+          heroku git:remote -a $HEROKU_APP_NAME
+          git push heroku HEAD:main --force
+          
+        env:
+            HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+            HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+
