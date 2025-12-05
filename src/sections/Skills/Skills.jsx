@@ -25,9 +25,9 @@ const skillLogos = {
   "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   
   // Cloud
-  "AWS Lambda": "https://cdn.simpleicons.org/awslambda/FF9900",
-  "EC2": "https://cdn.simpleicons.org/amazonec2/FF9900",
-  "DynamoDB": "https://cdn.simpleicons.org/amazondynamodb/4053D6",
+  "AWS Lambda": "https://iconduck.com/icons/241889/aws-lambda.svg",
+  "EC2": "https://iconduck.com/icons/241887/aws-ec2.svg",
+  "DynamoDB": "https://iconduck.com/icons/12647/aws-dynamodb.svg",
   
   // CI/CD & DevOps
   "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",

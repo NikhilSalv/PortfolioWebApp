@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cbe7fe32.css",
+    "main.js": "/static/js/main.7feb7ae7.js",
+    "static/media/NikhilSalvi-CV.pdf": "/static/media/NikhilSalvi-CV.093530d45e477b919261.pdf",
+    "static/media/profile.jpg": "/static/media/profile.6e2812c88063733ad025.jpg",
+    "index.html": "/index.html",
+    "main.cbe7fe32.css.map": "/static/css/main.cbe7fe32.css.map",
+    "main.7feb7ae7.js.map": "/static/js/main.7feb7ae7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbe7fe32.css",
+    "static/js/main.7feb7ae7.js"
+  ]
+}
