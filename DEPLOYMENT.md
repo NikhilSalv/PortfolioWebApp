@@ -55,3 +55,6 @@ git push heroku main
 - **Deployment fails:** Verify your Heroku API key and app name are correct in GitHub secrets
 - **App crashes on Heroku:** Check Heroku logs with `heroku logs --tail`
 
+- Adding a random comment to create commit. 
+
+
