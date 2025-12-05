@@ -25,10 +25,25 @@ jobs:
       - name: Build project
         run: npm run build
       
+      - name: Install Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+      
       - name: Deploy to Heroku
-        uses: dpla/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          usedocker: false
-          dontuseforce: false
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+          HEROKU_APP_NAME: ${{secrets.HEROKU_APP_NAME}}
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          
+          # Authenticate with Heroku using API key
+          echo "$HEROKU_API_KEY" | heroku auth:token
+          
+          # Set up Heroku git remote (this configures authentication properly)
+          heroku git:remote -a $HEROKU_APP_NAME
+          
+          # Push to Heroku (Heroku will build automatically via heroku-postbuild script)
+          # The heroku git:remote command sets up the remote with proper authentication
+          git push heroku HEAD:main --force
