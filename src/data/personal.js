@@ -57,21 +57,29 @@ export const personalData = {
   projects: [
     {
       id: 1,
-      title: "Project 1",
-      description: "A description of your first project",
+      title: "GDPR Compliance Assistant using RAG & FastAPI",
+      description: `A fully containerized Retrieval-Augmented Generation (RAG) system that extracts 
+      and embeds GDPR PDF content, stores vectors in Pinecone, and retrieves the top-3 relevant passages 
+      to generate accurate, context-aware answers using ChatGPT. Built with FastAPI for the backend 
+      and HTML/CSS/JS for the frontend, it showcases expertise in AI-powered search, vector databases, 
+      LLM integration, and containerized full-stack development.`,
       image: "/assets/images/project1.jpg",
-      technologies: ["React", "Node.js"],
-      github: "https://github.com/yourusername/project1",
-      live: "https://project1.com"
+      technologies: ["FastAPI", "RAG", "Pinecone", "Docker"],
+      github: "https://github.com/NikhilSalv/CRA_Assistant",
+      live: "https://github.com/NikhilSalv/CRA_Assistant"
     },
     {
       id: 2,
-      title: "Project 2",
-      description: "A description of your second project",
+      title: "Microservices-Based User Authentication & Content Management System",
+      description: `A containerized microservice architecture consisting of a 
+      Django authentication service with OTP-based signup/login (via Gmail SMTP) 
+      secured using JWT and bcrypt encryption. A ReactJS frontend communicates with the Django API, 
+      while a PostgreSQL Docker service stores user credentials and OTPs, 
+      forming a scalable foundation for a content management system.`,
       image: "/assets/images/project2.jpg",
-      technologies: ["React", "Python"],
-      github: "https://github.com/yourusername/project2",
-      live: "https://project2.com"
+      technologies: ["React", "Django", "PostgreSQL", "Docker"],
+      github: "https://github.com/NikhilSalv/CMS_Microservice",
+      live: "https://github.com/NikhilSalv/CMS_Microservice"
     }
   ],
   blogPosts: [
