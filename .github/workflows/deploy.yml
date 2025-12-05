@@ -32,9 +32,10 @@ jobs:
           
       - name: Debug secrets
         run: |
-          echo "APP NAME: ${{ secrets.HEROKU_APP_NAME }}"
-          echo "API KEY EXISTS: ${{ secrets.HEROKU_API_KEY != '' }}"
+          echo "APP NAME updated and EXISTS: ${{ secrets.HEROKU_APP_NAME != '' }}"
+          echo "API KEY updated and EXISTS: ${{ secrets.HEROKU_API_KEY != '' }}"
         
+
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
