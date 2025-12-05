@@ -20,7 +20,7 @@ const BlogPage = () => {
                 </div>
               </div>
               <p>{post.excerpt}</p>
-              <a href="#" className="read-more-link">Read More →</a>
+              <button type="button" className="read-more-link">Read More →</button>
             </article>
           ))}
         </div>

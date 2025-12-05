@@ -51,6 +51,12 @@
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .read-more-link:hover {
