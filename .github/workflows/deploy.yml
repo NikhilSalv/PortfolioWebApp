@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,37 +32,24 @@ jobs:
           curl https://cli-assets.heroku.com/install.sh | sh
           echo "$HOME/.local/bin" >> $GITHUB_PATH
           
-      - name: Debug secrets
-        run: |
-          echo "APP NAME updated and EXISTS: ${{ secrets.HEROKU_APP_NAME != '' }}"
-          echo "API KEY updated and EXISTS: ${{ secrets.HEROKU_API_KEY != '' }}"
-        
-
-    #   - name: Deploy to Heroku
-    #     run: |
-    #       git config --global user.email "action@github.com"
-    #       git config --global user.name "GitHub Action"
-    #       echo "$HEROKU_API_KEY" | heroku login --apikey
-    #       heroku git:remote -a $HEROKU_APP_NAME
-    #       git push heroku HEAD:main --force
-          
-    #     env:
-    #         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    #         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-
       - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+          HEROKU_APP_NAME: ${{secrets.HEROKU_APP_NAME}}
         run: |
-              git config --global user.email "action@github.com"
-              git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
           
-              # Set Heroku API key for authentication
-              export HEROKU_API_KEY=${{ secrets.HEROKU_API_KEY }}
-              export HEROKU_APP_NAME=${{ secrets.HEROKU_APP_NAME }}
+          # Unshallow the repository if it's a shallow clone
+          git fetch --unshallow || true
           
-              # Add Heroku git remote
-              heroku git:remote -a $HEROKU_APP_NAME
+          # Authenticate with Heroku using API key
+          echo "$HEROKU_API_KEY" | heroku auth:token
           
-              # Push to Heroku
-              git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:main --force
+          # Add Heroku git remote (this sets up authentication properly)
+          heroku git:remote -a $HEROKU_APP_NAME
+          
+          # Push to Heroku (Heroku will build automatically via heroku-postbuild script)
+          git push heroku HEAD:main --force
           
 
