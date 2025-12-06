@@ -1,0 +1,249 @@
+.leetcode-stats {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.leetcode-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.leetcode-logo {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leetcode-logo:hover {
+  transform: scale(1.1);
+}
+
+.leetcode-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.leetcode-text {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.leetcode-circle-wrapper {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  padding: 5px;
+  backdrop-filter: blur(10px);
+}
+
+.leetcode-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leetcode-circle:hover {
+  transform: scale(1.1);
+}
+
+.leetcode-circle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.leetcode-segment {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leetcode-segment.easy {
+  filter: drop-shadow(0 0 4px #4caf50) drop-shadow(0 0 8px rgba(76, 175, 80, 0.6));
+}
+
+.leetcode-segment.medium {
+  filter: drop-shadow(0 0 4px #ffc107) drop-shadow(0 0 8px rgba(255, 193, 7, 0.6));
+}
+
+.leetcode-segment.hard {
+  filter: drop-shadow(0 0 4px #f44336) drop-shadow(0 0 8px rgba(244, 67, 54, 0.6));
+}
+
+.leetcode-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  pointer-events: none;
+  width: 100%;
+}
+
+.leetcode-default,
+.leetcode-breakdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leetcode-default.visible,
+.leetcode-breakdown.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.leetcode-default.hidden,
+.leetcode-breakdown.hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  pointer-events: none;
+}
+
+.leetcode-count {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.leetcode-label {
+  font-size: 1rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.leetcode-breakdown {
+  font-size: 0.65rem;
+  line-height: 1.5;
+  min-width: 100px;
+  padding-left: 0.5rem;
+}
+
+.breakdown-item {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.leetcode-breakdown.visible .breakdown-item {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.leetcode-breakdown.visible .breakdown-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.leetcode-breakdown.visible .breakdown-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.leetcode-breakdown.visible .breakdown-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+}
+
+.breakdown-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.breakdown-color.easy {
+  background-color: #4caf50;
+}
+
+.breakdown-color.medium {
+  background-color: #ffc107;
+}
+
+.breakdown-color.hard {
+  background-color: #f44336;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .leetcode-stats {
+    top: 1rem;
+    right: 1rem;
+    gap: 0.75rem;
+  }
+
+  .leetcode-logo {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+  }
+
+  .leetcode-text {
+    font-size: 0.85rem;
+  }
+
+  .leetcode-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .leetcode-count {
+    font-size: 2.5rem;
+  }
+
+  .leetcode-label {
+    font-size: 0.85rem;
+  }
+
+  .leetcode-breakdown {
+    font-size: 0.6rem;
+  }
+}
+

@@ -1,12 +1,14 @@
 import React from 'react';
 import { personalData } from '../../data/personal';
 import Button from '../../components/Button/Button';
+import LeetCodeStats from '../../components/LeetCodeStats/LeetCodeStats';
 import profileImage from '../../assets/images/profile.jpg';
 import './Hero.css';
 
 const Hero = () => {
   return (
     <section className="hero" id="home">
+      <LeetCodeStats username="vloggerbhaai" />
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-text">
